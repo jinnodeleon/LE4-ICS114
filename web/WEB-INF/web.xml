@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	 version="3.1">
+    
+    <servlet>
+        <servlet-name>Controller</servlet-name>
+        <servlet-class>com.control.Controller</servlet-class>
+        
+       <!--Parameter 1 DRIVER NAME START-->
+    <init-param>  
+      <param-name>driverClass</param-name>  
+      <param-value>org.apache.derby.jdbc.ClientDriver</param-value>  
+    </init-param>  
+        <!--Parameter 1 END-->
+        
+        <!--Parameter 2 USER START-->
+    <init-param>  
+      <param-name>user</param-name>  
+      <param-value>app</param-value>  
+    </init-param> 
+        <!--Parameter 2 END-->
+        
+        <!--Parameter 3 PASS START-->
+    <init-param>  
+      <param-name>pass</param-name>  
+      <param-value>app</param-value>  
+    </init-param> 
+        <!--Parameter 3 END-->
+        
+        <!--Parameter FULL URL IF NEEDED START-->
+    <init-param>  
+      <param-name>finalUrl</param-name>  
+      <param-value>jdbc:derby://localhost:1527/UserDB</param-value>  
+    </init-param> 
+        <!--Parameter FULL URL IF NEEDED END-->
+           
+        <!--Parameter 4 URL START-->
+    <init-param>  
+      <param-name>url</param-name>  
+      <param-value>jdbc:derby</param-value>  
+    </init-param> 
+        <!--Parameter 4 END-->
+        
+        <!--Parameter 5 URL START-->
+    <init-param>  
+      <param-name>host</param-name>  
+      <param-value>localhost</param-value>  
+    </init-param> 
+        <!--Parameter 5 END-->
+        
+        <!--Parameter 6 URL START-->
+    <init-param>  
+      <param-name>port</param-name>  
+      <param-value>1527</param-value>  
+    </init-param> 
+        <!--Parameter 6 END-->
+        
+        <!--Parameter 7 URL START-->
+    <init-param>  
+      <param-name>databaseName</param-name>  
+      <param-value>UserDB</param-value>  
+    </init-param> 
+        <!--Parameter 7 END-->
+
+    </servlet>
+    
+<context-param>
+    <param-name>header</param-name>
+    <param-value>header.jsp</param-value>
+</context-param>
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <listener>
+      <listener-class>com.control.Listener</listener-class>
+   </listener>        
+    
+    <servlet-mapping>
+        <servlet-name>Controller</servlet-name>
+        <url-pattern>/Controller</url-pattern>
+    </servlet-mapping>    
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
